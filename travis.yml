@@ -1,0 +1,34 @@
+language: node_js
+
+node_js:
+  - 12
+
+cache: npm
+
+branches:
+  only:
+    - master
+
+jobs:
+  include:
+    - stage: test
+      name: "Front Test"
+      if: branch = master
+      install:
+        - npm install
+
+      script:
+        - npm test
+
+    - stage: deploy
+      name: "Front Deploy"
+      if: type = push AND branch = master
+      before_install:
+        - sudo apt-get install sshpass
+      script:
+        - sshpass -p "$DEVELOPER_PASSWORD" ssh -o StrictHostKeyChecking=no developer@"$FRONT_IP" "/home/deploy-watermelon-front.sh"
+
+notifications:
+  email:
+    recipients:
+      - eminem54@naver.com
