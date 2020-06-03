@@ -18,10 +18,21 @@ isExistFolder
 if [ $? -eq 0 ]
 then
   git clone $projectURL
+  cd $projectName
   npm install
+  npm run-script build
+  exit 100
 fi
 
 cd $projectName
 
-npm build
-
+git fetch origin
+if [ -z $(git diff origin) ]
+then
+  echo 'Latest Code'
+  npm run-script build
+else
+  git pull origin
+  npm install
+  npm run-script build
+fi
