@@ -26,7 +26,7 @@ jobs:
       before_install:
         - sudo apt-get install sshpass
       script:
-        - sshpass -p $DEVELOPER_PASSWORD ssh root@$FRONT_IP
+        - sshpass -p $DEVELOPER_PASSWORD ssh root@15.164.8.167
         - echo ./root/deploy-watermelon-front.sh
 
 notifications:
