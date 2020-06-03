@@ -26,8 +26,7 @@ jobs:
       before_install:
         - sudo apt-get install sshpass
       script:
-        - sshpass -p $DEVELOPER_PASSWORD ssh root@$FRONT_IP
-        - echo ./root/deploy-watermelon-front.sh
+        - sshpass -p "$DEVELOPER_PASSWORD" ssh -o StrictHostKeyChecking=no ec2-user@$FRONT_IP "/root/deploy-watermelon-front.sh"
 
 notifications:
   email:
