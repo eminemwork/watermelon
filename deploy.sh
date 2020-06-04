@@ -2,6 +2,7 @@
 
 projectName='watermelon-front'
 projectURL='https://github.com/eminemwork/watermelon-front.git'
+projectPath='/home/watermelon-front'
 
 isExistFolder() {
   for i in `ls`
@@ -13,6 +14,8 @@ isExistFolder() {
   done
   return 0;
 }
+
+cd /home
 
 isExistFolder
 if [ $? -eq 0 ]
