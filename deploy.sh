@@ -23,6 +23,7 @@ then
   git clone $projectURL
   cd $projectName
   npm install
+  npm audit fix
   npm run-script build
   exit 100
 fi
@@ -37,5 +38,9 @@ then
 else
   git pull origin
   npm install
+  npm audit fix
   npm run-script build
 fi
+
+systemctl stop nginx
+systemctl start nginx
