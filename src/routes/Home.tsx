@@ -1,9 +1,6 @@
 import React from "react";
+import NavigationBar from "components/NavigationBar";
 
 export default function Home() {
-  return (
-    <div className="App">
-      <header className="App-header">Learn React</header>
-    </div>
-  );
+  return <NavigationBar />;
 }
