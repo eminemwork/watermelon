@@ -1,12 +1,10 @@
 import React from "react";
-import NavigationBar from "components/NavigationBar";
-import SideBar from "components/SideBar";
+import Chart from "components/Chart";
 
 export default function Home() {
   return (
     <>
-      <NavigationBar />
-      <SideBar />
+      <Chart />
     </>
   );
 }
