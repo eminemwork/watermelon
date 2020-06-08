@@ -36,6 +36,8 @@ then
   echo 'Latest Code'
   npm run-script build
 else
+  echo 'Pull Repository'
+  git reset --hard origin/master
   git pull origin
   npm install
   npm audit fix
