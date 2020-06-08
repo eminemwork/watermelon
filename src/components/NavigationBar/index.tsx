@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
     naviBar: {
       backgroundColor: COLOR.Chartreuse,
       color: COLOR.Nero,
-      position: "absolute",
+      position: "fixed",
       zIndex: 0,
     },
   })
