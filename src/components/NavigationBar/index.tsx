@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: COLOR.Chartreuse,
       color: COLOR.Nero,
       position: "fixed",
-      zIndex: 0,
+      zIndex: 1,
     },
   })
 );
