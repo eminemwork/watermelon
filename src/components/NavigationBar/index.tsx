@@ -5,6 +5,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import COLOR from "global/color";
 import Search from "./search";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,6 +22,8 @@ const useStyles = makeStyles((theme: Theme) =>
     naviBar: {
       backgroundColor: COLOR.Chartreuse,
       color: COLOR.Nero,
+      position: "absolute",
+      zIndex: 0,
     },
   })
 );
@@ -30,6 +34,14 @@ export default function NavigationBar() {
     <div className={classes.root}>
       <AppBar position="static" className={classes.naviBar}>
         <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
+            <MenuIcon />
+          </IconButton>
           <Search />
           <Button color="inherit">Login</Button>
         </Toolbar>
