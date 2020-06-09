@@ -7,7 +7,6 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,6 +15,9 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: theme.spacing(0, "auto"),
     },
     chartList: {},
+    chartRow: {
+      cursor: "pointer",
+    },
   })
 );
 
@@ -53,16 +55,26 @@ export default function ChartList() {
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>순위</TableCell>
-                <TableCell>곡 명</TableCell>
-                <TableCell>가수</TableCell>
-                <TableCell>앨범</TableCell>
-                <TableCell>좋아요</TableCell>
+                <TableCell>
+                  <b>순위</b>
+                </TableCell>
+                <TableCell>
+                  <b>곡 명</b>
+                </TableCell>
+                <TableCell>
+                  <b>가수</b>
+                </TableCell>
+                <TableCell>
+                  <b>앨범</b>
+                </TableCell>
+                <TableCell>
+                  <b>좋아요</b>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                <TableRow key={row.rank}>
+                <TableRow key={row.rank} className={classes.chartRow}>
                   <TableCell component="th" scope="row">
                     {row.rank}
                   </TableCell>
