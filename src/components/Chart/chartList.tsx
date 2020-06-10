@@ -47,7 +47,6 @@ const rows = [
 
 export default function ChartList() {
   const classes = useStyles();
-
   return (
     <>
       <div className={classes.chartList}>
@@ -74,7 +73,7 @@ export default function ChartList() {
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                <TableRow key={row.rank} className={classes.chartRow}>
+                <TableRow key={row.rank} className={classes.chartRow} hover>
                   <TableCell component="th" scope="row">
                     {row.rank}
                   </TableCell>
