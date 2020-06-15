@@ -7,11 +7,13 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import Util from "global/util";
+import ChartData from "./chartDataInterface";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     table: {
-      minWidth: "400px",
+      minWidth: "420px",
       margin: theme.spacing(0, "auto"),
     },
     chartList: {},
@@ -21,31 +23,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-function createData(
-  rank: number,
-  title: string,
-  singer: string,
-  album: string,
-  like: number
-) {
-  return { rank, title, singer, album, like };
-}
+type ChartListProps = {
+  chartData: ChartData[];
+};
 
-const rows = [
-  createData(1, "깡", "식케이,pH-1,박재범,김하온", "깡 Official Remix", 40023),
-  createData(2, "에잇(Prod.&Feat. SUGA of BTS)", "아이유", "에잇", 32033),
-  createData(
-    3,
-    "사랑하게 될 줄 알았어",
-    "전미도",
-    "슬기로운 의사생활 OST Part 11",
-    87894
-  ),
-  createData(4, "아로하", "조정석", "슬기로운 의사생활 OST Part 11", 87988),
-  createData(5, "More & More", "TWICE (트와이스)", "More & More", 999999999),
-];
-
-export default function ChartList() {
+export default function ChartList({ chartData }: ChartListProps) {
   const classes = useStyles();
   return (
     <>
@@ -72,7 +54,7 @@ export default function ChartList() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {chartData.map((row) => (
                 <TableRow key={row.rank} className={classes.chartRow} hover>
                   <TableCell component="th" scope="row">
                     {row.rank}
@@ -80,7 +62,7 @@ export default function ChartList() {
                   <TableCell>{row.title}</TableCell>
                   <TableCell>{row.singer}</TableCell>
                   <TableCell>{row.album}</TableCell>
-                  <TableCell>{row.like}</TableCell>
+                  <TableCell>{Util.getFormattedNumber(row.like)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
