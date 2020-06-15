@@ -24,8 +24,8 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "cross-env REACT_ENV='local' react-scripts start",
-    "build": "cross-env REACT_ENV='production' react-scripts build",
+    "start": "cross-env REACT_APP_ENV=local react-scripts start",
+    "build": "cross-env REACT_APP_ENV=production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
